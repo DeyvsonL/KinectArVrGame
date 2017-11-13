@@ -22,6 +22,9 @@ namespace Assets
         [SerializeField]
         private float _offset = 10;
 
+        [SerializeField]
+        private GameObject _targets;
+
         private GameObject _cameraGameObject;
         private void Start()
         {
@@ -69,7 +72,6 @@ namespace Assets
                 pos = body.Joints[JointType.Head].Position;
                 _head.transform.localPosition = new Vector3(pos.X, pos.Y, -pos.Z) * _offset;
                 _cameraGameObject.transform.position = _head.transform.position;
-
             }
             else
             {
@@ -81,6 +83,7 @@ namespace Assets
                     }
                 }
             }
+            _targets.transform.position = new Vector3(_targets.transform.position.x, _head.transform.position.y, _head.transform.position.z);
         }
     }
 }
