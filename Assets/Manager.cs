@@ -2,6 +2,7 @@
 using Assets.Scripts.KinectManagers;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 namespace Assets
 {
@@ -12,6 +13,9 @@ namespace Assets
 
         [SerializeField]
         private GameObject _headPrefab;
+
+        [SerializeField]
+        private Text _pointsText;
 
         private BodySourceManager _bodySourceManager;
 
@@ -48,15 +52,17 @@ namespace Assets
             _head.name = "Head";
             NetworkServer.Spawn(_head);
         }
-
-        public override void OnStartLocalPlayer()
-        {
-            //_cameraGameObject 
-        }
+        
 
         // Update is called once per frame
         void Update () {
+
             if (!isServer) return;
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                FindObjectOfType<Player>().RpcSetPoints();
+            }
+
             if (_bodySourceManager == null) return;
             var bodies = _bodySourceManager.GetData();
             if (bodies == null) return;
