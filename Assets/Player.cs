@@ -20,8 +20,7 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     public void RpcSetPoints()
     {
-        points++;
-        pointsText.text = pointsText.ToString();
+        pointsText.text = string.Format("{0}\nDefesas", ++points);
     }
 
 }
