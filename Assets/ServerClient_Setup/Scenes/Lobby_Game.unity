@@ -630,6 +630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54745a4f48107b4d98e40a889a90f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftArmPrefab: {fileID: 1943158455279852, guid: 61a90253536e2f744ba554effef0b9df,
+    type: 2}
   _armPrefab: {fileID: 1943158455279852, guid: f84053efea83e6440bbbc010d2585615, type: 2}
   _headPrefab: {fileID: 1943158455279852, guid: b865d01d277479041b2c31d48533cf5e,
     type: 2}

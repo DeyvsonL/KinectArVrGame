@@ -9,6 +9,9 @@ namespace Assets
     public class Manager : NetworkBehaviour
     {
         [SerializeField]
+        private GameObject _leftArmPrefab;
+
+        [SerializeField]
         private GameObject _armPrefab;
 
         [SerializeField]
@@ -32,17 +35,15 @@ namespace Assets
         private GameObject _cameraGameObject;
         private void Start()
         {
-            if (isServer)
-            {
-                _bodySourceManager = GetComponent<BodySourceManager>();
-                Debug.Log(_bodySourceManager);
-                _cameraGameObject = GameObject.FindGameObjectWithTag("MainCamera");
-            }
+            if (!isServer) return;
+            _bodySourceManager = GetComponent<BodySourceManager>();
+            Debug.Log(_bodySourceManager);
+            _cameraGameObject = GameObject.FindGameObjectWithTag("MainCamera");
         }
 
         public override void OnStartServer() {
 
-            _leftHand = Instantiate(_armPrefab, transform.position, transform.rotation);
+            _leftHand = Instantiate(_leftArmPrefab, transform.position, transform.rotation);
             _leftHand.GetComponent<SpriteRenderer>().flipX = true;
             Debug.Log(_leftHand.GetComponent<SpriteRenderer>().flipX);
             _leftHand.name = "Left Hand";
@@ -58,8 +59,9 @@ namespace Assets
 
         // Update is called once per frame
         void Update () {
-
+            Debug.Log("oi");
             if (!isServer) return;
+            Debug.Log("Hello");
             if (Input.GetKeyDown(KeyCode.A))
             {
                 FindObjectOfType<Player>().RpcSetPoints();
