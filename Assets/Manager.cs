@@ -43,6 +43,8 @@ namespace Assets
         public override void OnStartServer() {
 
             _leftHand = Instantiate(_armPrefab, transform.position, transform.rotation);
+            _leftHand.GetComponent<SpriteRenderer>().flipX = true;
+            Debug.Log(_leftHand.GetComponent<SpriteRenderer>().flipX);
             _leftHand.name = "Left Hand";
             NetworkServer.Spawn(_leftHand);
             _righttHand = Instantiate(_armPrefab, transform.position, transform.rotation);

@@ -4864,8 +4864,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817217543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 430.5, y: 155, z: 0}
-  m_LocalScale: {x: 0.35877317, y: 0.35877317, z: 0.35877317}
+  m_LocalPosition: {x: 176.5, y: 132.5, z: 0}
+  m_LocalScale: {x: 0.21239673, y: 0.21239673, z: 0.21239673}
   m_Children:
   - {fileID: 2096345345}
   m_Father: {fileID: 0}
@@ -5494,6 +5494,7 @@ MonoBehaviour:
   - {fileID: 1943158455279852, guid: f84053efea83e6440bbbc010d2585615, type: 2}
   - {fileID: 1952161482262822, guid: 3e313f180bedd5244b4e68e6c3244b0b, type: 2}
   - {fileID: 1943158455279852, guid: b865d01d277479041b2c31d48533cf5e, type: 2}
+  - {fileID: 1154186850073764, guid: df30e7a8bf806af4a8ec2a3872da594d, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 8
   m_ConnectionConfig:

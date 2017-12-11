@@ -20,19 +20,17 @@ public class LeftArmManager : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update () {
-        if (isServer) return;
-        if (isLocalPlayer)
+    void Update ()
+    {
+        if (!isLocalPlayer) return;
+        if (_head == null)
         {
-            if (_head == null)
-            {
-                Debug.Log(null);
-            }
-            else
-            {
-                Debug.Log(_head.transform.position);
-                _camera.transform.position = _head.transform.position;
-            }
+            Debug.Log(null);
+        }
+        else
+        {
+            Debug.Log(_head.transform.position);
+            _camera.transform.position = _head.transform.position;
         }
     }
 }

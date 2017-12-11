@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Shooter : MonoBehaviour {
+public class Shooter : NetworkBehaviour {
 
     [SerializeField]
     private float _interval = 2;
@@ -24,8 +24,9 @@ public class Shooter : MonoBehaviour {
         };
 
     // Use this for initialization
-    void Start() {
-        InvokeRepeating("Shoot", _interval, _interval);
+    public override void OnStartServer()
+    {
+            InvokeRepeating("Shoot", _interval, _interval);
     }
 
     private void Shoot() {
