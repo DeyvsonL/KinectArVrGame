@@ -14,6 +14,7 @@ namespace Assets.Scripts.KinectManagers
         public int BodyIndexWidth { get; private set; }
         public int BodyIndexrHeight { get; private set; }
 
+        [SerializeField]
         private BodySourceManager _bodySourceManager;
 
         private Texture2D _texture;
@@ -39,8 +40,6 @@ namespace Assets.Scripts.KinectManagers
                 _sensor.Open();
             }
 
-            _bodySourceManager = GetComponent<BodySourceManager>();
-
         }
 
         void Update()
@@ -53,6 +52,7 @@ namespace Assets.Scripts.KinectManagers
                 frame.CopyFrameDataToArray(_data);
 
                 var index = 0;
+                Debug.Log(_bodySourceManager.CurrentBody);
                 foreach (var ir in _data)
                 {
                     if (ir != _bodySourceManager.CurrentBody)
