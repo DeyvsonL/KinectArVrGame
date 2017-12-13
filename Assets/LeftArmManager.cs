@@ -33,4 +33,12 @@ public class LeftArmManager : NetworkBehaviour
             _camera.transform.position = _head.transform.position;
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (!isServer || name.Equals("Head(Clone)")) return;
+
+        FindObjectOfType<Player>().RpcAddPoints();
+    }
+
 }

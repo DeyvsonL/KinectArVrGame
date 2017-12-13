@@ -59,13 +59,7 @@ namespace Assets
 
         // Update is called once per frame
         void Update () {
-            Debug.Log("oi");
             if (!isServer) return;
-            Debug.Log("Hello");
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                FindObjectOfType<Player>().RpcSetPoints();
-            }
 
             if (_bodySourceManager == null) return;
             var bodies = _bodySourceManager.GetData();
